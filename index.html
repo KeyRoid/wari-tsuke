@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="ja" data-lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Wari-Tsuke | Legal</title>
+  <meta name="description" content="Wari-Tsuke legal documents: Terms, Tokusho, Privacy." />
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body class="bg">
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <h1>Wari-Tsuke <span class="subtitle" data-ja="法務ページ" data-en="Legal Pages">法務ページ</span></h1>
+        </div>
+      </div>
+      <div class="spacer"></div>
+      <div class="lang" aria-label="Language Switch">
+        <button id="lang-ja" type="button" aria-pressed="true">JA</button>
+        <button id="lang-en" type="button" aria-pressed="false">EN</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card hero">
+      <div class="title" data-ja="Wari-Tsuke（均等割り付け計算機）" data-en="Wari-Tsuke (Equal Spacer)">Wari-Tsuke（均等割り付け計算機）</div>
+      <div class="desc"
+        data-ja="現場の判断を、迷いなく。ここでは利用規約・特定商取引法に基づく表記・プライバシーポリシーを日英で掲載しています。"
+        data-en="Decisions on-site, without hesitation. Here you can read Terms, Tokusho (Japanese commerce notice), and the Privacy Policy in Japanese and English.">
+        現場の判断を、迷いなく。ここでは利用規約・特定商取引法に基づく表記・プライバシーポリシーを日英で掲載しています。
+      </div>
+    </section>
+
+    <section class="grid">
+      <a class="card linkcard" href="terms.html">
+        <div class="k">
+          <span class="pill" data-ja="規約" data-en="TERMS">規約</span>
+          <div class="h" data-ja="利用規約" data-en="Terms of Use">利用規約</div>
+        </div>
+        <div class="p"
+          data-ja="アプリ利用時のルール、免責、禁止事項など。"
+          data-en="Rules, disclaimers, and prohibited actions for using the app.">
+          アプリ利用時のルール、免責、禁止事項など。
+        </div>
+      </a>
+
+      <a class="card linkcard" href="privacy.html">
+        <div class="k">
+          <span class="pill" data-ja="個人情報" data-en="PRIVACY">個人情報</span>
+          <div class="h" data-ja="プライバシーポリシー" data-en="Privacy Policy">プライバシーポリシー</div>
+        </div>
+        <div class="p"
+          data-ja="収集する情報、利用目的、第三者提供の有無など。"
+          data-en="What we collect, why, and whether we share with third parties.">
+          収集する情報、利用目的、第三者提供の有無など。
+        </div>
+      </a>
+
+      <a class="card linkcard" href="tokusho.html">
+        <div class="k">
+          <span class="pill" data-ja="表記" data-en="NOTICE">表記</span>
+          <div class="h" data-ja="特定商取引法に基づく表記" data-en="Tokusho (Japan Commerce Notice)">特定商取引法に基づく表記</div>
+        </div>
+        <div class="p"
+          data-ja="販売事業者、連絡先、価格、支払方法、返金条件など。"
+          data-en="Seller, contact, pricing, payment methods, refunds, and more.">
+          販売事業者、連絡先、価格、支払方法、返金条件など。
+        </div>
+      </a>
+
+      <a class="card linkcard" href="index.html">
+        <div class="k">
+          <span class="pill" data-ja="入口" data-en="HOME">入口</span>
+          <div class="h" data-ja="このページ（Index）" data-en="This page (Index)">このページ（Index）</div>
+        </div>
+        <div class="p"
+          data-ja="法務ページの入口。言語切替は右上のJA/ENから。"
+          data-en="Entry point for legal pages. Use JA/EN buttons on the top right.">
+          法務ページの入口。言語切替は右上のJA/ENから。
+        </div>
+      </a>
+    </section>
+
+    <footer class="card footer">
+      <div>© <span id="y"></span> Wari-Tsuke</div>
+      <div>
+        <a href="terms.html" data-ja="利用規約" data-en="Terms">利用規約</a> ·
+        <a href="privacy.html" data-ja="プライバシー" data-en="Privacy">プライバシー</a> ·
+        <a href="tokusho.html" data-ja="特商法" data-en="Tokusho">特商法</a>
+      </div>
+    </footer>
+  </main>
+
+  <script src="assets/app.js"></script>
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+    // apply i18n
+    document.querySelectorAll("[data-ja][data-en]").forEach(el=>{
+      const lang = document.documentElement.getAttribute("data-lang") || "ja";
+      el.textContent = (lang === "en") ? el.getAttribute("data-en") : el.getAttribute("data-ja");
+    });
+    const obs = new MutationObserver(()=>{
+      const lang = document.documentElement.getAttribute("data-lang") || "ja";
+      document.querySelectorAll("[data-ja][data-en]").forEach(el=>{
+        el.textContent = (lang === "en") ? el.getAttribute("data-en") : el.getAttribute("data-ja");
+      });
+    });
+    obs.observe(document.documentElement, { attributes:true, attributeFilter:["data-lang"]});
+  </script>
+</body>
+</html>
