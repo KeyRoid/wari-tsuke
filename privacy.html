@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="ja" data-lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Wari-Tsuke | Privacy</title>
+  <meta name="description" content="Wari-Tsuke Privacy Policy." />
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body class="bg">
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="index.html">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <h1>Wari-Tsuke <span class="subtitle" data-ja="プライバシー" data-en="Privacy">プライバシー</span></h1>
+        </div>
+      </a>
+      <div class="spacer"></div>
+      <div class="lang">
+        <button id="lang-ja" type="button" aria-pressed="true">JA</button>
+        <button id="lang-en" type="button" aria-pressed="false">EN</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card page">
+      <h2 data-ja="プライバシーポリシー" data-en="Privacy Policy">プライバシーポリシー</h2>
+      <div class="meta" data-ja="最終更新日：YYYY-MM-DD（必要に応じて更新してください）" data-en="Last updated: YYYY-MM-DD (edit as needed)">
+        最終更新日：YYYY-MM-DD（必要に応じて更新してください）
+      </div>
+
+      <h3 data-ja="1. 収集する情報" data-en="1. Information We Collect">1. 収集する情報</h3>
+      <p data-ja="本アプリは、基本機能（計算）を提供するために、利用者の個人情報の入力を必要としません。"
+         data-en="The App does not require you to enter personal information to use its core calculation features.">
+        本アプリは、基本機能（計算）を提供するために、利用者の個人情報の入力を必要としません。
+      </p>
+      <ul>
+        <li data-ja="入力した数値は端末上で計算に使用され、提供者のサーバーへ送信されません。"
+            data-en="Numbers you input are used for on-device calculations and are not sent to the provider’s servers.">
+          入力した数値は端末上で計算に使用され、提供者のサーバーへ送信されません。
+        </li>
+        <li data-ja="（アナリティクス/広告SDKを導入する場合）導入範囲と収集内容をここに追記してください。"
+            data-en="(If you add analytics/ads SDKs) describe what is collected and why, and update this section accordingly.">
+          （アナリティクス/広告SDKを導入する場合）導入範囲と収集内容をここに追記してください。
+        </li>
+      </ul>
+
+      <h3 data-ja="2. 利用目的" data-en="2. Purpose of Use">2. 利用目的</h3>
+      <p data-ja="提供者が情報を収集する場合、その目的はアプリの提供・品質改善・不具合対応等に限定します。"
+         data-en="If the provider collects any information in the future, it will be limited to app delivery, quality improvements, and troubleshooting.">
+        提供者が情報を収集する場合、その目的はアプリの提供・品質改善・不具合対応等に限定します。
+      </p>
+
+      <h3 data-ja="3. 第三者提供" data-en="3. Sharing with Third Parties">3. 第三者提供</h3>
+      <p data-ja="本アプリは、利用者の入力値を第三者に提供しません。"
+         data-en="The App does not share your input values with third parties.">
+        本アプリは、利用者の入力値を第三者に提供しません。
+      </p>
+
+      <h3 data-ja="4. お問い合わせ" data-en="4. Contact">4. お問い合わせ</h3>
+      <p data-ja="プライバシーに関するお問い合わせは、特商法ページに記載の連絡先へご連絡ください。"
+         data-en="For privacy-related inquiries, please use the contact information listed on the Tokusho page.">
+        プライバシーに関するお問い合わせは、特商法ページに記載の連絡先へご連絡ください。
+      </p>
+
+      <div class="notice"
+        data-ja="※重要：アナリティクス/広告/クラッシュレポート等を追加する場合は、収集項目・利用目的・オプトアウト方法を必ず追記してください。"
+        data-en="Important: If you add analytics/ads/crash reporting, you must describe data types, purposes, and opt-out methods here.">
+        ※重要：アナリティクス/広告/クラッシュレポート等を追加する場合は、収集項目・利用目的・オプトアウト方法を必ず追記してください。
+      </div>
+    </section>
+
+    <footer class="card footer">
+      <div><a href="index.html" data-ja="← Indexへ戻る" data-en="← Back to Index">← Indexへ戻る</a></div>
+      <div>
+        <a href="terms.html" data-ja="利用規約" data-en="Terms">利用規約</a> ·
+        <a href="tokusho.html" data-ja="特商法" data-en="Tokusho">特商法</a>
+      </div>
+    </footer>
+  </main>
+
+  <script src="assets/app.js"></script>
+  <script>
+    document.querySelectorAll("[data-ja][data-en]").forEach(el=>{
+      const lang = document.documentElement.getAttribute("data-lang") || "ja";
+      el.textContent = (lang === "en") ? el.getAttribute("data-en") : el.getAttribute("data-ja");
+    });
+    const obs = new MutationObserver(()=>{
+      const lang = document.documentElement.getAttribute("data-lang") || "ja";
+      document.querySelectorAll("[data-ja][data-en]").forEach(el=>{
+        el.textContent = (lang === "en") ? el.getAttribute("data-en") : el.getAttribute("data-ja");
+      });
+    });
+    obs.observe(document.documentElement, { attributes:true, attributeFilter:["data-lang"]});
+  </script>
+</body>
+</html>
